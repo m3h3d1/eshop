@@ -3,6 +3,7 @@ package com.mehedi.shop.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
@@ -25,11 +26,16 @@ public class OrderEntity {
 	private String status;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
 	@ManyToMany
-	@JoinTable(name = "order_details", joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+	@JsonIgnore
+	@JoinTable(name = "order_details", joinColumns = @JoinColumn
+			(name = "order_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+
 	private List<Product> products = new ArrayList<>();
 
 	public OrderEntity() {
@@ -85,5 +91,4 @@ public class OrderEntity {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
 }

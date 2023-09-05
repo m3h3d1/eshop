@@ -19,7 +19,6 @@ public class OrderService {
 	@Autowired
 	private ProductRepository productRepository;
 
-
 	public void createOrder(OrderEntity orderEntity) {
 		orderRepository.save(orderEntity);
 	}
@@ -30,7 +29,7 @@ public class OrderService {
 
 	public void deleteOrder(Integer id) {
 		if (orderRepository.findById(id).isEmpty()) {
-			throw new ProductNotExistException("Order not exists");
+			throw new ProductNotExistException("Order does not exist");
 		}
 		orderRepository.deleteById(id);
 	}
@@ -41,7 +40,7 @@ public class OrderService {
 
 	public OrderEntity findOrderById(Integer id) {
 		Optional<OrderEntity> orderEntity = orderRepository.findById(id);
-		if (orderEntity.isEmpty()) {
+		if (!orderEntity.isPresent()) {
 			throw new ProductNotExistException("Order not exists");
 		}
 		return orderEntity.get();

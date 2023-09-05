@@ -18,30 +18,30 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@PostMapping("/create")
+	@PostMapping("/create_product")
 	public ResponseEntity<?> create(@RequestBody Product product) {
 		productService.createProduct(product);
 		return ResponseEntity.ok("product is created");
 	}
 
-	@PutMapping("/update")
+	@PutMapping("/update_product")
 	public ResponseEntity<?> update(@RequestBody Product product) {
 		productService.updateProduct(product);
-		return ResponseEntity.ok("product is updated");
+		return ResponseEntity.ok("product is updated successfully");
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete_product/{id}")
 	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		productService.deleteProduct(id);
-		return ResponseEntity.ok("product is removed");
+		return ResponseEntity.ok("product is deleted succesfully");
 	}
 
-	@GetMapping("/get")
+	@GetMapping("/get_products")
 	public ResponseEntity<?> getAllProducts() {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
 	}
 
-	@GetMapping("/get/{id}")
+	@GetMapping("/get_product/{id}")
 	public ResponseEntity<?> findProductById(@PathVariable Integer id) {
 		return new ResponseEntity<>(productService.findProductById(id), HttpStatus.OK);
 	}

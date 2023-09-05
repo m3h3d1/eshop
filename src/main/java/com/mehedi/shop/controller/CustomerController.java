@@ -1,5 +1,6 @@
 package com.mehedi.shop.controller;
 
+import com.mehedi.shop.exceptionHandler.ProductNotExistException;
 import com.mehedi.shop.model.Customer;
 import com.mehedi.shop.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +22,19 @@ public class CustomerController {
 	@PostMapping("/create_customer")
 	public ResponseEntity<?> create(@RequestBody Customer customer) {
 		customerService.createCustomer(customer);
-		return ResponseEntity.ok("customer is created");
+		return ResponseEntity.ok("customer is created successfully");
 	}
 
 	@PutMapping("/update/customer")
 	public ResponseEntity<?> update(@RequestBody Customer customer) {
 		customerService.updateCustomer(customer);
-		return ResponseEntity.ok("customer is updated");
+		return ResponseEntity.ok("customer is updated successfully");
 	}
 
 	@DeleteMapping("/delete/customer/{id}")
 	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		customerService.deleteCustomer(id);
-		return ResponseEntity.ok("customer is removed");
+		return ResponseEntity.ok("customer is removed successfully");
 	}
 
 	@GetMapping("/get/customer")

@@ -20,7 +20,7 @@ public class OrderController {
 	@PostMapping("/create_order")
 	public ResponseEntity<?> create(@RequestBody OrderEntity orderEntity) {
 		orderService.createOrder(orderEntity);
-		return ResponseEntity.ok("order is created");
+		return ResponseEntity.ok("order is created successfully");
 	}
 	@GetMapping("/get/order")
 	public ResponseEntity<?> get() {
@@ -43,5 +43,4 @@ public class OrderController {
 		orderService.deleteOrder(id);
 		return ResponseEntity.ok("order is deleted successfully");
 	}
-
 }

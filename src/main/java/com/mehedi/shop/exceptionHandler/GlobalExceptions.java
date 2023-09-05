@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import jakarta.persistence.EntityNotFoundException;
 
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptions {
 
 	@ExceptionHandler({ EntityNotFoundException.class })
 	public ResponseEntity<?> handleEntityNotFoundException() {
@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler({ SQLIntegrityConstraintViolationException.class })
 	public ResponseEntity<?> handleTSQLIntegrityConstraintViolationException() {
 		return new ResponseEntity<>(
-				new SQLIntegrityConstraintViolationException("You can't modify or delete").getMessage(),
+				new SQLIntegrityConstraintViolationException("Can't be modified or deleted").getMessage(),
 				HttpStatus.BAD_REQUEST);
 	}
 

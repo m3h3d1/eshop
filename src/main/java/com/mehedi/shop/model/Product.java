@@ -3,6 +3,7 @@ package com.mehedi.shop.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
@@ -23,6 +24,7 @@ public class Product {
 	private Integer quantity;
 
 	@ManyToMany(mappedBy = "products")
+	@JsonIgnore
 	private List<OrderEntity> orderEntites = new ArrayList<>();
 
 	public Product() {

@@ -33,8 +33,8 @@ public class CustomerService {
 
 	public Customer findCustomerById(Integer id) {
 		Optional<Customer> customer = customerRepository.findById(id);
-		if (customer.isEmpty()) {
-			throw new ProductNotExistException("customer not exists");
+		if (!customer.isPresent()) {
+			throw new ProductNotExistException("Customer with ID " + id + " does not exist");
 		}
 		return customer.get();
 	}
