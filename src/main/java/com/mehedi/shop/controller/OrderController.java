@@ -22,19 +22,6 @@ public class OrderController {
 		orderService.createOrder(orderEntity);
 		return ResponseEntity.ok("order is created");
 	}
-
-	@PutMapping("/update/order")
-	public ResponseEntity<?> update(@RequestBody OrderEntity orderEntity) {
-		orderService.updateOrder(orderEntity);
-		return ResponseEntity.ok("order is updated");
-	}
-
-	@DeleteMapping("/delete/order/{id}")
-	public ResponseEntity<?> create(@PathVariable Integer id) {
-		orderService.deleteOrder(id);
-		return ResponseEntity.ok("order is deleted");
-	}
-
 	@GetMapping("/get/order")
 	public ResponseEntity<?> get() {
 		return ResponseEntity.ok(orderService.getAllOrder());
@@ -44,4 +31,17 @@ public class OrderController {
 	public ResponseEntity<?> get(@PathVariable Integer id) {
 		return ResponseEntity.ok(orderService.findOrderById(id));
 	}
+
+	@PutMapping("/update/order")
+	public ResponseEntity<?> update(@RequestBody OrderEntity orderEntity) {
+		orderService.updateOrder(orderEntity);
+		return ResponseEntity.ok("order is updated successfully");
+	}
+
+	@DeleteMapping("/delete/order/{id}")
+	public ResponseEntity<?> create(@PathVariable Integer id) {
+		orderService.deleteOrder(id);
+		return ResponseEntity.ok("order is deleted successfully");
+	}
+
 }

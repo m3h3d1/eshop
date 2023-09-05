@@ -3,7 +3,7 @@ package com.mehedi.shop.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.mehedi.shop.exception.ProductNotExistException;
+import com.mehedi.shop.exceptionHandler.ProductNotExistException;
 import com.mehedi.shop.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

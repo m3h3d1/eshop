@@ -1,4 +1,4 @@
-package com.mehedi.shop.exception;
+package com.mehedi.shop.exceptionHandler;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
@@ -15,13 +15,15 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler({ EntityNotFoundException.class })
 	public ResponseEntity<?> handleEntityNotFoundException() {
-		return new ResponseEntity<>(new EntityNotFoundException("product or customer not found").getMessage(),
+		return new ResponseEntity<>(
+				new EntityNotFoundException("product or customer not found").getMessage(),
 				HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler({ TransientPropertyValueException.class })
 	public ResponseEntity<?> handleTransientPropertyValueException() {
-		return new ResponseEntity<>(new ProductNotExistException("Customer is not found").getMessage(),
+		return new ResponseEntity<>(
+				new ProductNotExistException("Customer is not found").getMessage(),
 				HttpStatus.BAD_REQUEST);
 	}
 

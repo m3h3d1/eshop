@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mehedi.shop.exception.ProductNotExistException;
+import com.mehedi.shop.exceptionHandler.ProductNotExistException;
 import com.mehedi.shop.model.Product;
 import com.mehedi.shop.repository.ProductRepository;
 

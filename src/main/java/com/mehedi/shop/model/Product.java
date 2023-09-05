@@ -27,16 +27,6 @@ public class Product {
 
 	public Product() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Product(Integer id, String productName, Integer price, Integer quantity, List<OrderEntity> orderEntites) {
-		super();
-		this.id = id;
-		this.productName = productName;
-		this.price = price;
-		this.quantity = quantity;
-		this.orderEntites = orderEntites;
 	}
 
 	public Integer getId() {

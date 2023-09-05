@@ -1,4 +1,4 @@
-package com.mehedi.shop.exception;
+package com.mehedi.shop.exceptionHandler;
 
 public class ProductNotExistException extends RuntimeException {
 	private final String message;
